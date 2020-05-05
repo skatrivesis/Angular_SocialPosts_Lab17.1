@@ -1,0 +1,22 @@
+<p>My Thoughts</p>
+<ul>
+   <li *ngFor="let p of posts; let postIndex = index;">
+       {{p.title}}<br>
+       {{p.thought}}
+       <button (click)="deletePost(postIndex)">X</button> 
+
+   </li>
+</ul>
+
+<button (click)="initiate()">Add a thought</button>
+<div>
+   <form *ngIf="initiated">
+      <input type="text"  placeholder="Enter a Title" [(ngModel)]="title" name="postTitle" />
+      <br>
+      <input type="text"  placeholder="Enter your Thought" [(ngModel)]="thought" name="postThought"/><br>
+
+      <button type="submit" (click)="submitPost($event)">Submit</button>
+   </form>
+
+
+</div>
